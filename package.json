@@ -1,6 +1,6 @@
 {
   "name": "ng-openapi-gen",
-  "version": "0.51.0",
+  "version": "0.51.1",
   "license": "MIT",
   "author": "Cyclos development team",
   "description": "An OpenAPI 3 codegen for Angular 12+",
@@ -11,7 +11,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cyclosproject/ng-openapi-gen.git"
+    "url": "git+https://github.com/Dockbite/ng-openapi-gen.git"
+  },
+  "publishConfig": {
+    "@Dockbite:registry": "https://npm.pkg.github.com"
   },
   "private": true,
   "bin": {
