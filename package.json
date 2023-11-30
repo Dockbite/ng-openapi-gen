@@ -1,5 +1,5 @@
 {
-  "name": "ng-openapi-gen",
+  "name": "@dockbite/ng-openapi-gen",
   "version": "0.51.1",
   "license": "MIT",
   "author": "Cyclos development team",
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/Dockbite/ng-openapi-gen.git"
   },
   "publishConfig": {
-    "@Dockbite:registry": "https://npm.pkg.github.com"
+    "@dockbite:registry": "https://npm.pkg.github.com"
   },
   "private": true,
   "bin": {
