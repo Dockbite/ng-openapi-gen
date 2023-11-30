@@ -177,7 +177,8 @@ class QueryParameter extends Parameter {
       }
     } else if (this.value !== null && this.value !== undefined) {
       // Plain value
-      params = params.append(this.name, this.serializeValue(this.value));
+      params = this.value;
+      //params = params.append(this.name, this.serializeValue(this.value));
     }
     return params;
   }
