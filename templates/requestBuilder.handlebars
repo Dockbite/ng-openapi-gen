@@ -151,8 +151,21 @@ class QueryParameter extends Parameter {
         // Append a parameter for each key, in the form `name[key]`
         for (const key of Object.keys(this.value)) {
           const propVal = this.value[key];
-          if (propVal !== null && propVal !== undefined) {
-            params = params.append(`${this.name}[${key}]`, this.serializeValue(propVal));
+          if (propVal !== null && typeof propVal === 'object') {
+            for (const keyD of Object.keys(propVal)) {
+              const propValDeep = this.value[key][keyD];
+              if (propValDeep !== null && propValDeep !== undefined) {
+                params = params.append(
+                  `${this.name}[${key}][${keyD}]`,
+                  this.serializeValue(propValDeep)
+                );
+              }
+            }
+          } else if (propVal !== null && propVal !== undefined) {
+            params = params.append(
+              `${this.name}[${key}]`,
+              this.serializeValue(propVal)
+            );
           }
         }
       } else if (this.options.explode) {
@@ -177,8 +190,7 @@ class QueryParameter extends Parameter {
       }
     } else if (this.value !== null && this.value !== undefined) {
       // Plain value
-      params = this.value;
-      //params = params.append(this.name, this.serializeValue(this.value));
+      params = params.append(this.name, this.serializeValue(this.value));
     }
     return params;
   }
